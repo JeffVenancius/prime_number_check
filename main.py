@@ -16,7 +16,7 @@ import math
 def get_factor(min, max):
 # As we just want to get prime numbers here, we do easy_is_not_prime each loop and avoid some ones.
     for i in range(min + 1, max + 1):
-        if easy_is_not_prime(i):
+        if easy_is_not_prime(i, math.sqrt(i)):
             continue
         i_prime = True
         for j in range(i, max):
@@ -28,21 +28,23 @@ def get_factor(min, max):
     return 0 # Falsy.
 
 
-def easy_is_not_prime(value):
+def easy_is_not_prime(value, value_sqrt):
     if value != 2 and not value & 1: # binary operation to check if it's even.
         return True
-    sqrt_value = math.sqrt(value) 
-    if sqrt_value == round(sqrt_value):
+    if value_sqrt.is_integer():
         return True
     return False
 
 
 def is_prime(input):
-    if easy_is_not_prime(input):
+    input = abs(input) # so it can suport signed numbers as well. Can a negative number be a prime? Yes, but we simplify by saying that no, it can't.
+    input_sqrt = math.sqrt(input)
+    if easy_is_not_prime(input, input_sqrt):
         return False
+
 # Lazy aproach
     factor = 3
-    rounded = round(math.sqrt(input))
+    rounded = round(input_sqrt)
     while factor:
         if input % factor == 0:
             return False
@@ -50,6 +52,6 @@ def is_prime(input):
     return True
 
 # Test
-for i in range (0, 10000):
+for i in range (-10000, 10000):
     if is_prime(i):
         print(i)
