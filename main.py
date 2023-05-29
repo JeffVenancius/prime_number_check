@@ -29,7 +29,7 @@ def get_factor(min, max):
 
 
 def easy_is_not_prime(value, value_sqrt):
-    if value != 2 and not value & 1: # binary operation to check if it's even.
+    if not value & 1: # binary operation to check if it's even.
         return True
     if value_sqrt.is_integer():
         return True
@@ -38,6 +38,8 @@ def easy_is_not_prime(value, value_sqrt):
 
 def is_prime(input):
     input = abs(input) # so it can suport signed numbers as well. Can a negative number be a prime? Yes, but we simplify by saying that no, it can't.
+    if input > 0 and < 4:
+        return true
     input_sqrt = math.sqrt(input)
     if easy_is_not_prime(input, input_sqrt):
         return False
