@@ -3,11 +3,21 @@
 import math
 import array as arr
 
+def int_sqrt(number): # TODO - by prime factorization
+    times_odded = 1
+    odded = 1   
+    while number != 0:
+        number -= odded
+        odded += 2
+        times_odded += 1
+        if number < 0:
+            return -1
+    return times_odded
 
-def naive_approach(number): # From https://www.codeproject.com/Articles/691200/Primality-test-algorithms-Prime-test-The-fastest-w
+def naive_approach(number, sqrtOfNumber): # From https://www.codeproject.com/Articles/691200/Primality-test-algorithms-Prime-test-The-fastest-w
+
     i = 7
-    sqrtOfNumber = math.sqrt(number)
-    
+
     while i <= sqrtOfNumber:
         if number % i == 0:
             return False
@@ -146,10 +156,14 @@ def is_prime(input):
     if input % 3 == 0:
         return False
 
+    sqrtOfNumber = int_sqrt(number)
+    if sqrtOfNumber > 0: # perfect square
+        return False
+
     str_input = str(input)
     digits = len(str_input)
     if digits <= 15:
-        if naive_approach(input):
+        if naive_approach(input, sqrtOfNumber):
             return True
         return False
 
