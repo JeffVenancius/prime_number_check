@@ -1,6 +1,9 @@
-# prime_number_check
+<h1 align="center"> Prime number checker </h1>
 
-![Father Pucci from Jojo's Bizarre Adventure](https://github.com/JeffVenancius/prime_number_check/assets/43701418/093a2520-aca1-4ac3-a2d0-412b7a7811c3)
+<div  align="center">
+<img src=https://github.com/JeffVenancius/prime_number_check/assets/43701418/093a2520-aca1-4ac3-a2d0-412b7a7811c3 width=50%/>
+</div>
+<p align="center">Father Pucci from Jojo's Bizarre Adventure</p>
 
 This algorithm has many aproaches, each one more complex than the previous.
 the idea is to discover if the number is not a prime with the less calculations possible.
