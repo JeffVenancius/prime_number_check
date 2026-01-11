@@ -10,14 +10,13 @@ primes = [
 	3,
 	5,
 	7,
-	9,
 	11,
 	13,
 	17,
 	19
 ]
 
-primes_test = [3,7,9,11,13,17,19]
+primes_test = [3,7,11,13,17,19]
 primal = '1379'
 
 def get_newprimes():
